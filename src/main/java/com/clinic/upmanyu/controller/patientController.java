@@ -46,5 +46,10 @@ public class patientController {
         PatientDto patientDto= patientService.updatePatient(patientId,updatedPatient);
         return ResponseEntity.ok(patientDto);
     }
+@DeleteMapping("{id}")
+    public ResponseEntity<String> deletePatient(@PathVariable("id") Long patientId){
+        patientService.deletePatient(patientId);
+    return ResponseEntity.ok(" Patient Deleted successfully!");
+    }
 
 }

@@ -10,4 +10,6 @@ public interface patientService {
 
     List<PatientDto> getAllPatients();
     PatientDto updatePatient(Long patientId, PatientDto updatedPatient);
+
+    void deletePatient(Long patientId);
 }
