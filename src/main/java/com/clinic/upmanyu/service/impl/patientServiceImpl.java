@@ -3,10 +3,9 @@ package com.clinic.upmanyu.service.impl;
 import com.clinic.upmanyu.dto.PatientDto;
 import com.clinic.upmanyu.entity.Patient;
 import com.clinic.upmanyu.exceptions.ResourceNotFoundException;
-import com.clinic.upmanyu.mapper.patientMapper;
+import com.clinic.upmanyu.mapper.PatientMapper;
 import com.clinic.upmanyu.service.patientService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.clinic.upmanyu.repository.PatientRepository;
 
@@ -20,9 +19,9 @@ public class patientServiceImpl implements patientService {
     @Override
     public PatientDto createPatient(PatientDto patientDto) {
 
-        Patient patient= patientMapper.mapToPatient(patientDto);
+        Patient patient= PatientMapper.mapToPatient(patientDto);
         Patient savedPatient = patientRepository.save(patient);
-        return patientMapper.mapToPatientDto(savedPatient);
+        return PatientMapper.mapToPatientDto(savedPatient);
     }
 
     @Override
@@ -30,13 +29,13 @@ public class patientServiceImpl implements patientService {
        Patient patient=  patientRepository.findById(patientId)
                 .orElseThrow(()->
                         new ResourceNotFoundException("Patient does not exist with the given id: "+ patientId));
-        return patientMapper.mapToPatientDto(patient);
+        return PatientMapper.mapToPatientDto(patient);
     }
 
     @Override
     public List<PatientDto> getAllPatients() {
         List<Patient> patients= patientRepository.findAll();
-        return patients.stream().map((patient) -> patientMapper.mapToPatientDto(patient)).collect(Collectors.toList());
+        return patients.stream().map((patient) -> PatientMapper.mapToPatientDto(patient)).collect(Collectors.toList());
     }
 
     @Override
@@ -54,7 +53,7 @@ public class patientServiceImpl implements patientService {
 
         Patient updatedPatientObj=  patientRepository.save(patient);
 
-        return patientMapper.mapToPatientDto(updatedPatientObj);
+        return PatientMapper.mapToPatientDto(updatedPatientObj);
     }
 
     @Override

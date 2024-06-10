@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -15,7 +17,8 @@ import lombok.Setter;
 public class Patient {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "patientId")
+    private Long patientId;
     @Column(name="first_name")
     private String firstName;
     @Column(name="last_name")
@@ -26,6 +29,8 @@ public class Patient {
     private String aadhar;
     @Column(name="age")
     private int age;
-    @Column(name="address")
+    @Column(name= "address")
     private String address;
+
 }
+
