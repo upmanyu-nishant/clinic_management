@@ -21,6 +21,8 @@ public class CheckUpDto {
     private String investigationResults;
     private String medicine;
 
+    private Long patientId;
+
 
 
 }

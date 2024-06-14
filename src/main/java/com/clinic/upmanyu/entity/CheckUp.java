@@ -36,6 +36,10 @@ public class CheckUp {
 
     @Column(name = "medicine")
     private String medicine;
+    @ManyToOne
+    @JoinColumn(name = "patient_id", referencedColumnName = "patientId")
+    private Patient patient;
+
 
 
 

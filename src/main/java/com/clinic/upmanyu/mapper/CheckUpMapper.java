@@ -13,7 +13,7 @@ public class CheckUpMapper {
         checkUpDto.setTreatment(checkUp.getTreatment());
         checkUpDto.setInvestigationResults(checkUp.getInvestigationResults());
         checkUpDto.setMedicine(checkUp.getMedicine());
-
+        checkUpDto.setPatientId(checkUp.getPatient().getPatientId()); // Include patient ID
 
         return checkUpDto;
     }
